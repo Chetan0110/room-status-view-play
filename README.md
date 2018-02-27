@@ -1,53 +1,47 @@
-[<img src="https://img.shields.io/travis/playframework/play-java-starter-example.svg"/>](https://travis-ci.org/playframework/play-java-starter-example)
+# comment-system-play
 
-# play-java-starter-example
+## Setup
 
-This is a starter application that shows how Play works.  Please see the documentation at https://www.playframework.com/documentation/latest/Home for more details.
+* Download and install sbt
+* Clone the project
+* Setup the database by running following script (Use MySql database)
 
-## Running
+  CREATE DATABASE IF NOT EXISTS `comment_system`;
+  USE `comment_system`;
 
-Run this using [sbt](http://www.scala-sbt.org/).  If you downloaded this project from http://www.playframework.com/download then you'll find a prepackaged version of sbt in the project directory:
+  DROP TABLE IF EXISTS `comments`;
+  CREATE TABLE `comments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parentCommentId` int(11) NOT NULL DEFAULT '0',
+  `author` varchar(45) NOT NULL,
+  `content` text NOT NULL,
+  PRIMARY KEY (`id`)
+  ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+  LOCK TABLES `comments` WRITE;
+  /_!40000 ALTER TABLE `comments` DISABLE KEYS _/;
+  INSERT INTO `comments` VALUES (1,0,'Abhishek','This is my first comment.'),(2,0,'Abhishek','This is my second comment.'),(3,1,'Chetan','This is Chetan\'s reply to Abhishek\'s first comment.'),(4,1,'Chetan','This is Chetan\'s second reply to Abhishek\'s first comment.'),(5,1,'Chetan','This is Chetan\'s third reply to Abhishek\'s first comment.'),(13,0,'Abhishek','This is my third comment.');
+  /_!40000 ALTER TABLE `comments` ENABLE KEYS _/;
+  UNLOCK TABLES;
 
-```
-sbt run
-```
+  DROP TABLE IF EXISTS `users`;
+  CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `active` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+  ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  LOCK TABLES `users` WRITE;
+  /_!40000 ALTER TABLE `users` DISABLE KEYS _/;
+  INSERT INTO `users` VALUES (1,'Abhishek',1),(2,'Chetan',0);
+  /_!40000 ALTER TABLE `users` ENABLE KEYS _/;
+  UNLOCK TABLES;
 
-And then go to http://localhost:9000 to see the running web application.
+## Usage
 
-## Controllers
+### To run the server:
 
-There are several demonstration files available in this template.
+* Under the root (comment-system-play) directory run `sbt ~run` or `sbt run`
 
-- HomeController.java:
+Above command installs all the dependencies and JAR files for the project and starts the server.
 
-  Shows how to handle simple HTTP requests.
-
-- AsyncController.java:
-
-  Shows how to do asynchronous programming when handling a request.
-
-- CountController.java:
-
-  Shows how to inject a component into a controller and use the component when
-  handling requests.
-
-## Components
-
-- Module.java:
-
-  Shows how to use Guice to bind all the components needed by your application.
-
-- Counter.java:
-
-  An example of a component that contains state, in this case a simple counter.
-
-- ApplicationTimer.java:
-
-  An example of a component that starts when the application starts and stops
-  when the application stops.
-
-## Filters
-
-- ExampleFilter.java
-
-  A simple filter that adds a header to every response.
+The app will be accessible at [localhost:9000](http://localhost:9000)
