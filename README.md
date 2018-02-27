@@ -11,29 +11,29 @@
 
   DROP TABLE IF EXISTS `comments`;
   CREATE TABLE `comments` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO*INCREMENT,
   `parentCommentId` int(11) NOT NULL DEFAULT '0',
   `author` varchar(45) NOT NULL,
   `content` text NOT NULL,
   PRIMARY KEY (`id`)
   ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
   LOCK TABLES `comments` WRITE;
-  /_!40000 ALTER TABLE `comments` DISABLE KEYS _/;
+  /*!40000 ALTER TABLE `comments` DISABLE KEYS _/;
   INSERT INTO `comments` VALUES (1,0,'Abhishek','This is my first comment.'),(2,0,'Abhishek','This is my second comment.'),(3,1,'Chetan','This is Chetan\'s reply to Abhishek\'s first comment.'),(4,1,'Chetan','This is Chetan\'s second reply to Abhishek\'s first comment.'),(5,1,'Chetan','This is Chetan\'s third reply to Abhishek\'s first comment.'),(13,0,'Abhishek','This is my third comment.');
-  /_!40000 ALTER TABLE `comments` ENABLE KEYS _/;
+  /_!40000 ALTER TABLE `comments` ENABLE KEYS \_/;
   UNLOCK TABLES;
 
   DROP TABLE IF EXISTS `users`;
   CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO*INCREMENT,
   `name` varchar(45) DEFAULT NULL,
   `active` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
   ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
   LOCK TABLES `users` WRITE;
-  /_!40000 ALTER TABLE `users` DISABLE KEYS _/;
+  /*!40000 ALTER TABLE `users` DISABLE KEYS _/;
   INSERT INTO `users` VALUES (1,'Abhishek',1),(2,'Chetan',0);
-  /_!40000 ALTER TABLE `users` ENABLE KEYS _/;
+  /_!40000 ALTER TABLE `users` ENABLE KEYS \_/;
   UNLOCK TABLES;
 
 ## Usage
