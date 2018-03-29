@@ -13,7 +13,5 @@ GET     /message                    controllers.AsyncController.message
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
 
-GET     /comments                   com.loco.api.ApiSystem.getAllComments()
-POST     /comments                  com.loco.api.ApiSystem.getAllComments()
-DELETE  /comments/:comment_id                com.loco.api.ApiSystem.deleteComment(comment_id: String)
-
+GET     /floors                            com.chetan.api.ApiSystem.getAllFloorNames()
+GET     /floors/:floorId                   com.chetan.api.ApiSystem.getFloorRooms(floorId :String)

@@ -1,4 +1,4 @@
-package com.loco.data;
+package com.chetan.data;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
