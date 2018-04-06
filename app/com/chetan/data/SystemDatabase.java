@@ -22,8 +22,8 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import play.db.Database;
 import play.libs.Json;
 
-import com.loco.data.Tables;
-import com.loco.utils.Utils;
+import com.chetan.data.Tables;
+import com.chetan.utils.Utils;
 
 @Singleton
 public class SystemDatabase

@@ -28,9 +28,9 @@ import javax.inject.Singleton;
 
 import views.html.*;
 
-import com.loco.api.ApiController;
-import com.loco.data.SystemDatabase;
-import com.loco.data.Tables;
+import com.chetan.api.ApiController;
+import com.chetan.data.SystemDatabase;
+import com.chetan.data.Tables;
 
 /**
  * This controller contains an action to handle HTTP requests
