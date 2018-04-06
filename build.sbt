@@ -1,5 +1,5 @@
-name := """comment-system-play"""
-organization := "com.loco"
+name := """room-status-view-play"""
+organization := "com.chetan"
 
 version := "1.0-SNAPSHOT"
 
